@@ -3,7 +3,7 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$here\$sut"
 
 Describe "Get-POLStream" {
-    It "does something useful" {
-        $true | Should Be $false
+    It "Check if Polly sends an Audio Stream" {
+        Get-POLStream | Should BeOfType [System.IO.Stream]
     }
 }
