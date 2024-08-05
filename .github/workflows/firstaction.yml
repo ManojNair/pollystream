@@ -22,7 +22,6 @@ jobs:
 
       # Runs a single command using the runner's shell
       - name: Run a one-line script
-        shell: pwsh
         id: generate-number
         run: echo "number=$(echo $RANDOM)" >> "$GITHUB_OUTPUT"
         
