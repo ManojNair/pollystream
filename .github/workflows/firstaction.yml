@@ -22,14 +22,14 @@ jobs:
 
       # Runs a single command using the runner's shell
       - name: Run a one-line script
+        shell: pwsh
         id: generate-number
-        run: echo "number=$(echo $RANDOM)" >> "$GITHUB_OUTPUT"
+        run: |
+          $number = Get-Random
+          "number=$number" | Out-File -FilePath ${{env:GITHUB_OUTPUT}} -Append
         
       - name: Use Number
         id: use-number
         run: echo "The number is ${{ steps.generate-number.outputs.number }}"
 
-      # Runs a set of commands using the runner's shell
-      - name: Run a multi-line script
-        run: |
-          echo "The name is ${{ steps.generate-name.outputs.outputName }}"
+
