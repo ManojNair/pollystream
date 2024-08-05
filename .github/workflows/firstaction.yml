@@ -26,7 +26,7 @@ jobs:
         id: generate-number
         run: |
           $number = Get-Random
-          "number=$number" | Out-File -FilePath ${{env.GITHUB_OUTPUT}} -Append
+          "number=$number" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
         
       - name: Use Number
         id: use-number
